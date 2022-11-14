@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>摆烂</title>
+<meta charset="utf-8" />
+<script>
+    //定义函数myClose关闭当前窗口
+    function myClose(){
+        //将id为time的元素的内容转为整数，保存在变量n中
+        var n=parseInt(time.innerHTML);
+        n--;//将n-1
+        //如果n==0,关闭页面
+        //否则, 将n+秒钟后自动关闭，再保存回time的内容中
+        if(n>0){
+            time.innerHTML=n+"秒钟后自动关闭";
+            timer=setTimeout(myClose,1000);
+        }else{
+            close();
+        }
+    }
+    var timer=null;
+    //当页面加载后，启动周期性定时器，每个1秒执行myClose
+    window.onload=function(){
+        timer=setTimeout(myClose,1000);
+    }
+</script>
+</head>
+<body>
+  <div style="
+  text-align:center;
+  margin:100px
+  ">
+      <img src="https://tse1-mm.cn.bing.net/th/id/OIP-C.vGiR3s-g1Ds-wff_MaTfngHaEL?w=305&h=180&c=7&r=0&o=5&pid=1.7" 
+      width="500px"
+  </div>
+  <div style="
+  font-size:24px;
+  max-widith:700px;
+  margin:50px;
+  ">
+      <p>摆烂10秒钟</p>
+     <span id="time">10秒钟后自动关闭</span><br>
+  </div>
+</body>
+</html>
